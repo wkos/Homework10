@@ -20,35 +20,35 @@ public class CarTest {
         for (Vehicle vehicle : vehicles)
             System.out.println(vehicle);
 
-        Rentable[] rentables = new Rentable[3];
+        RentableCar[] rentableCars = new RentableCar[3];
         for (int i = 0; i < 2; i++) {
-            rentables[i] = new RentableCar((Car) vehicles[i]);
-            if (rentables[i].isRent())
+            rentableCars[i] = new RentableCar((Car) vehicles[i]);
+            if (rentableCars[i].isRent())
                 System.out.println(vehicles[i].toString() + " wypożyczony");
             else
                 System.out.println(vehicles[i].toString() + " wolny");
         }
         System.out.println("-------------------------------");
         System.out.println("Pożyczam samochód");
-        rentables[0].rent(people[0].getFirstName(), people[0].getLastName(), vehicles[0].getId());
-        System.out.println(people[0].toString() + vehicles[0].toString() + rentables[0].toString());
+        rentableCars[0].rent(people[0].getFirstName(), people[0].getLastName(), vehicles[0].getId());
+        System.out.println(people[0].toString() + vehicles[0].toString() + rentableCars[0].toString());
         System.out.println("-------------------------------");
         System.out.println("Pożyczam samochód wypożyczony");
-        rentables[0].rent(people[1].getFirstName(), people[1].getLastName(), vehicles[0].getId());
-        System.out.println(people[0].toString() + vehicles[0].toString() + rentables[0].toString());
+        rentableCars[0].rent(people[1].getFirstName(), people[1].getLastName(), vehicles[0].getId());
+        System.out.println(people[0].toString() + vehicles[0].toString() + rentableCars[0].toString());
         System.out.println("-------------------------------");
         System.out.println("Zwracam samochód");
-        rentables[0].handOver();
-        rentables[0].setPerson(null);
-        System.out.println("pożyczający: " + rentables[0].getPerson());
-        System.out.println(people[0].toString() + vehicles[0].toString() + rentables[0].toString());
+        rentableCars[0].handOver();
+        rentableCars[0].setPerson(null);
+        System.out.println("pożyczający: " + rentableCars[0].getPerson());
+        System.out.println(people[0].toString() + vehicles[0].toString() + rentableCars[0].toString());
         System.out.println("-------------------------------");
-        rentables[1] = new RentableCar((Car) vehicles[1]);
-        rentables[1].rent(people[1].getFirstName(), people[1].getLastName(), vehicles[1].getId());
-        System.out.println(people[1].toString() + vehicles[1].toString() + rentables[1].toString());
-        rentables[2] = new RentableCar((Car) vehicles[1]);
-        rentables[2].rent(people[2].getFirstName(), people[2].getLastName(), vehicles[1].getId());
-        System.out.println(people[2].toString() + vehicles[2].toString() + rentables[1].toString());
+        rentableCars[1] = new RentableCar((Car) vehicles[1]);
+        rentableCars[1].rent(people[1].getFirstName(), people[1].getLastName(), vehicles[1].getId());
+        System.out.println(people[1].toString() + vehicles[1].toString() + rentableCars[1].toString());
+        rentableCars[2] = new RentableCar((Car) vehicles[1]);
+        rentableCars[2].rent(people[2].getFirstName(), people[2].getLastName(), vehicles[1].getId());
+        System.out.println(people[2].toString() + vehicles[2].toString() + rentableCars[1].toString());
         System.out.println("-------------------------------");
         vehicles[2].turnLeft();
         System.out.println(vehicles[2].showDirection());

@@ -1,7 +1,7 @@
 package pl.wkos.homework101;
 
 public abstract class Vehicle implements Moveable {
-    private String  id;
+    private String id;
     private String name;
     private int productionYear;
     private String direction;
@@ -12,17 +12,24 @@ public abstract class Vehicle implements Moveable {
         this.productionYear = productionYear;
     }
 
-    public void turnLeft(){
+    public void turnLeft() {
         direction = "lewo";
     }
-    public void turnRight(){
+
+    public void turnRight() {
         direction = "prawo";
     }
-    public void goForward(){
+
+    public void goForward() {
         direction = "przód";
     }
-    public void goBack(){
+
+    public void goBack() {
         direction = "tył";
+    }
+
+    public String showDirection() {
+        return "Jadę w " + direction;
     }
 
     @Override
@@ -32,10 +39,6 @@ public abstract class Vehicle implements Moveable {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String  id) {
-        this.id = id;
     }
 
     public int getProductionYear() {

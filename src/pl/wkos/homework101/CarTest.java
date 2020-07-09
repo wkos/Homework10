@@ -6,8 +6,12 @@ public class CarTest {
         people[0] = new Person("Jan", "Abacki");
         people[1] = new Person("Ewa", "Babacka");
         people[2] = new Person("Ala", "Cabacka");
+        System.out.println("Wypożyczający");
         for (Person person : people)
             System.out.println(person.toString());
+
+        System.out.println("-------------------------------");
+        System.out.println("Samochody");
         Vehicle[] vehicles = new Vehicle[4];
         vehicles[0] = new Car("ford01", "Ford", 2014, 4);
         vehicles[1] = new Car("volvo01", "Volvo", 2020, 5);
@@ -24,22 +28,35 @@ public class CarTest {
             else
                 System.out.println(vehicles[i].toString() + " wolny");
         }
-
+        System.out.println("-------------------------------");
         System.out.println("Pożyczam samochód");
         rentables[0].rent(people[0].getFirstName(), people[0].getLastName(), vehicles[0].getId());
         System.out.println(people[0].toString() + vehicles[0].toString() + rentables[0].toString());
+        System.out.println("-------------------------------");
         System.out.println("Pożyczam samochód wypożyczony");
         rentables[0].rent(people[1].getFirstName(), people[1].getLastName(), vehicles[0].getId());
         System.out.println(people[0].toString() + vehicles[0].toString() + rentables[0].toString());
+        System.out.println("-------------------------------");
         System.out.println("Zwracam samochód");
         rentables[0].handOver();
+        rentables[0].setPerson(null);
+        System.out.println("pożyczający: " + rentables[0].getPerson());
         System.out.println(people[0].toString() + vehicles[0].toString() + rentables[0].toString());
-
+        System.out.println("-------------------------------");
         rentables[1] = new RentableCar((Car) vehicles[1]);
         rentables[1].rent(people[1].getFirstName(), people[1].getLastName(), vehicles[1].getId());
         System.out.println(people[1].toString() + vehicles[1].toString() + rentables[1].toString());
         rentables[2] = new RentableCar((Car) vehicles[1]);
         rentables[2].rent(people[2].getFirstName(), people[2].getLastName(), vehicles[1].getId());
         System.out.println(people[2].toString() + vehicles[2].toString() + rentables[1].toString());
+        System.out.println("-------------------------------");
+        vehicles[2].turnLeft();
+        System.out.println(vehicles[2].showDirection());
+        vehicles[2].turnRight();
+        System.out.println(vehicles[2].showDirection());
+        vehicles[2].goForward();
+        System.out.println(vehicles[2].showDirection());
+        vehicles[2].goBack();
+        System.out.println(vehicles[2].showDirection());
     }
 }

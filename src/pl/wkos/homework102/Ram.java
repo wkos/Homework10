@@ -12,9 +12,10 @@ public class Ram extends Clocking {
 
     public void overclock(int clock){
         int currentTemperature = super.getWorkingTemperature() + (int)(ratioTempToClock * clock);
-        if (currentTemperature < super.getMaxTemperature())
+        if (currentTemperature < super.getMaxTemperature()) {
+            super.setClocking(super.getClock() + clock);
             super.setWorkingTemperature(currentTemperature);
-        else
+        }else
             System.out.println("Za wysoka temperature zmniejsz overclocking pamięci");
     }
 

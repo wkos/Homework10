@@ -39,7 +39,6 @@ public class CarTest {
         System.out.println("-------------------------------");
         System.out.println("Zwracam samochód");
         rentableCars[0].handOver();
-        rentableCars[0].setPerson(null);
         System.out.println("pożyczający: " + rentableCars[0].getPerson());
         System.out.println(people[0].toString() + vehicles[0].toString() + rentableCars[0].toString());
         System.out.println("-------------------------------");
